@@ -57,4 +57,16 @@ pair<int, int> BFS(int map[][MAP_WIDTH], pair<int, int> start, pair<int, int> en
     return make_pair(-1,-1);
 
 }
-
+bool is_possible(pair<int, int> p){
+    return p.first >= 0 && p.first < MAP_WIDTH && p.second >= 0 && p.second < MAP_HEIGHT;
+}
+pair<int, int> nearest_move(pair<int, int> obj){
+    if (obj.first+1 < MAP_WIDTH && pacman_map[obj.first+1][obj.second] == 1)
+        return make_pair(obj.first+1, obj.second);
+    if (obj.first-1 >= 0 && pacman_map[obj.first-1][obj.second] == 1)
+        return make_pair(obj.first-1, obj.second);
+    if (obj.second+1 < MAP_HEIGHT &&  pacman_map[obj.first][obj.second+1] == 1)
+        return make_pair(obj.first, obj.second+1);
+    //if (obj.second-1 >= 0 && pacman_map[obj.first][obj.second-1] == 1)
+    return make_pair(obj.first, obj.second-1);
+}

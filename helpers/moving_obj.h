@@ -10,7 +10,7 @@ class MovingObject : public sf::Sprite {
         pair<int, int> p;
         float vel;
     public:
-        MovingObject(float radius, float vel, pair<int, int> position, sf::Texture texture2) : sf::Sprite(texture2){
+        MovingObject(float radius, float vel, pair<int, int> position) : sf::Sprite(){
             //this->setFillColor(color);
             this->p = position;
             this->vel = vel;
@@ -18,7 +18,7 @@ class MovingObject : public sf::Sprite {
             setScale(radius, radius);
             //setOrigin(position.first, position.second);
             setOrigin(width_ratio/POS_DIV, height_ratio/POS_DIV);
-            setTexture(texture2);
+            //setTexture(texture2);
         }
         void set_target(Target target){ this->target = target;}
         void set_position(pair<int, int> p){
@@ -55,9 +55,7 @@ class MovingObject : public sf::Sprite {
         }
         Target go_to(pair<int, int> target_position){
             pair<int, int> p_p = make_pair(getPosition().x/width_ratio, getPosition().y/height_ratio);
-            //cout << "pog: " << p.first << ", " << p.second << endl;
             pair<int, int> best_dir = BFS(pacman_map, p_p, target_position);
-            //cout << best_dir.first << ", " << best_dir.second << ", pos: " << target_position.first << endl;
             Target target;
             target.where = best_dir.first - this->p.first == 0 ? 1 : 0;
             target.d = target.where == 1 ? best_dir.second - this->p.second : best_dir.first - this->p.first;
@@ -69,16 +67,48 @@ class MovingObject : public sf::Sprite {
 };
 
 class Ghost : public MovingObject {
+    private:
+        sf::Texture move_texture[2];
+        pair<int, int>(*action)(MovingObject &p1, Ghost &p2);
+        float time;
+        float died_time;
+        bool died;
+        pair<int, int> scatter_place;
     public:
-        Ghost(float radius, float vel, pair<int, int> position, sf::Texture texture2, sf::Texture ghost_mov[2], void(*action)(MovingObject p1, MovingObject p2)) : MovingObject(radius, vel, position, texture2){
-            sf::Texture move_texture = ghost_mov;
-            setTexture(move_text);
-            auto action = action;
-            float time = 0;
+        Ghost(float radius, float vel, pair<int, int> position, sf::Texture ghost_mov[2], pair<int, int>(*actionF)(MovingObject &p1, Ghost &p2), pair<int, int> scatter_place) : MovingObject(radius, vel, position){
+            move_texture[0] = ghost_mov[0];
+            move_texture[1] = ghost_mov[1];
+            action = actionF;
+            time = 0;
+            died_time = 0;
+            died = false;
+            this->scatter_place = scatter_place;
         }
-        updateGhost(MovingObject pacman, MovingObject guest){
-            go_to(action(pacman, guest));
-            setTexture(move_texture[int(time+0.01)%2]);
+        pair<int, int> random_target(){
+            pair<int, int> p = {getPosition().x/width_ratio, getPosition().y/height_ratio};
+            p.first = p.first + (rand()%3)-1;
+            p.second = p.second + (rand()%3)-1;
+            if (pacman_map[p.second][p.first] == 1)
+                return nearest_move(p);
+            return p;
+        }
+        void updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points){
+            if (died_time > 0){
+                died_time -= 0.0001;
+                return;
+            }
+            if (scared == false) died = false;
+            if (died) scared = false;
+            if (int(time)%100 > 60 && int(time)%1000 < 85 && !scared) update(go_to(scatter_place));
+            else update(go_to(!scared ? action(pacman, guest) : random_target()));
+            setTexture(!scared ? move_texture[int(time+0.01)%2] : scared_ghost[int(time+0.01)%2]);
+            // Check if pacman has collided to the ghost
+            if (get_map_coord() == pacman.get_map_coord() && scared){
+                set_position(make_pair(14, 14));
+                died_time = 1;
+                died = true;
+                eat_points += 10;
+            }
             time += 0.001;
         }
 };

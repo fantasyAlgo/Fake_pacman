@@ -6,7 +6,6 @@
 #include <queue>
 #include <fstream>
 #include "helpers/textures.h"
-//#include <bits/stdc++.h>
 
 using namespace std;
 
@@ -15,7 +14,7 @@ using namespace std;
 #define MAP_HEIGHT 27
 #define SCREEN_WIDTH 800
 #define SCREEN_HEIGHT 800
-#define VELOCITY 0.0013
+#define VELOCITY 0.0011
 #define POS_DIV 2
 const int width_ratio = SCREEN_WIDTH / MAP_WIDTH;
 const int height_ratio = SCREEN_HEIGHT / MAP_HEIGHT;
@@ -91,11 +90,11 @@ int main(){
     float sizeDivisor = 30.0;
     float pac_mov_time = 0;
     load_textures();
-    MovingObject pacman(width_ratio/sizeDivisor, VELOCITY, make_pair(17, 19), pac_mov[0]);
-    MovingObject blinky(width_ratio/sizeDivisor, VELOCITY/2, make_pair(14, 14), pac_mov[0]);
-    MovingObject inky(width_ratio/sizeDivisor, VELOCITY/2, make_pair(13, 14), pac_mov[0]);
-    MovingObject clyde(width_ratio/sizeDivisor, VELOCITY/2, make_pair(14, 13), pac_mov[0]);
-    MovingObject pinky(width_ratio/sizeDivisor, VELOCITY/2, make_pair(14, 15), pac_mov[0]);
+    MovingObject pacman(width_ratio/sizeDivisor, VELOCITY, make_pair(17, 19));
+    Ghost blinky(width_ratio/sizeDivisor, VELOCITY, make_pair(14, 14), blinky_mov,[](MovingObject &pacman, Ghost &p2){return pacman.get_position();}, make_pair(1, 1));
+    Ghost inky(width_ratio/sizeDivisor, VELOCITY, make_pair(13, 14), inky_mov, inky_target, make_pair(MAP_WIDTH-2, MAP_HEIGHT-2));
+    Ghost clyde(width_ratio/sizeDivisor, VELOCITY, make_pair(14, 13), clyde_mov, clyde_target, make_pair(MAP_HEIGHT-1, 1));
+    Ghost pinky(width_ratio/sizeDivisor, VELOCITY, make_pair(14, 15), pinky_mov, pinky_target, make_pair(1, MAP_HEIGHT-2));
 
     sf::Font font;
     font.loadFromFile("arial.ttf");
@@ -152,12 +151,17 @@ int main(){
         
         }
         pacman.setTexture(pac_mov[int(pac_mov_time)%3]);
-        if (pacman.getTarget().where == 1){
-            pacman.setRotation(-pacman.getTarget().d*90);
-        }else if (pacman.getTarget().where == 0){
-            pacman.setRotation(pacman.getTarget().d == 1 ? 180 : 0);
-        }
-        if (time > 0){
+        if (pacman.getTarget().where == 1) pacman.setRotation(-pacman.getTarget().d*90);
+        else if (pacman.getTarget().where == 0) pacman.setRotation(pacman.getTarget().d == 1 ? 180 : 0);
+
+        pac_mov_time += 0.001;
+        pacman.update(new_target);
+        blinky.updateGhost(pacman, blinky, time > 0, eat_points);
+        pinky.updateGhost(pacman, pinky, time > 0, eat_points);
+        inky.updateGhost(pacman, blinky, time > 0, eat_points);
+        clyde.updateGhost(pacman, clyde, time > 0, eat_points);
+
+        /*if (time > 0){
             blinky.setTexture(scared_ghost[int(pac_mov_time+0.01)%2]);
             pinky.setTexture(scared_ghost[int(pac_mov_time+0.006)%2]);
             inky.setTexture(scared_ghost[int(pac_mov_time+0.001)%2]);
@@ -181,13 +185,13 @@ int main(){
         }
 
         //pacman.rotate(pac_mov_time/10);
-        pac_mov_time += 0.001;
 
         pacman.update(new_target);
         blinky.update(time <= 0 ? blinky.go_to(pacman.get_position()) : blinky.go_to(random_target(blinky)));
         pinky.update(time <= 0 ? pinky.go_to(pinky_target(pacman)) : pinky.go_to(random_target(pinky)));
         inky.update(time <= 0 ? inky.go_to(inky_target(pacman, blinky)) : inky.go_to(random_target(inky)));
         clyde.update(time <= 0 ? clyde.go_to(clyde_target(clyde, pacman)) : clyde.go_to(random_target(clyde)));
+        */
 
         // check if pacman is the same position as one of ghosts
         if ((blinky.get_map_coord() == pacman.get_map_coord() || pinky.get_map_coord() == pacman.get_map_coord() || 
@@ -220,7 +224,6 @@ int main(){
             }
             if (i >= 0) window.draw(powers[i]);
         }
-        cout << coins.size() << endl;
         points.setString("Points: " + to_string(init_coins - coins.size() + eat_points));
         window.draw(points);
         window.display();
