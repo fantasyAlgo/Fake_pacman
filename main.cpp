@@ -161,43 +161,11 @@ int main(){
         inky.updateGhost(pacman, blinky, time > 0, eat_points);
         clyde.updateGhost(pacman, clyde, time > 0, eat_points);
 
-        /*if (time > 0){
-            blinky.setTexture(scared_ghost[int(pac_mov_time+0.01)%2]);
-            pinky.setTexture(scared_ghost[int(pac_mov_time+0.006)%2]);
-            inky.setTexture(scared_ghost[int(pac_mov_time+0.001)%2]);
-            clyde.setTexture(scared_ghost[int(pac_mov_time+0.5)%2]);
-
-            if ((blinky.get_map_coord() == pacman.get_map_coord() || pinky.get_map_coord() == pacman.get_map_coord() || 
-                inky.get_map_coord() == pacman.get_map_coord() || clyde.get_map_coord() == pacman.get_map_coord()) ){
-                eat_points += 10;
-            }
-
-            if (blinky.get_map_coord() == pacman.get_map_coord()) blinky.set_position(make_pair(14, 14));
-            else if (pinky.get_map_coord() == pacman.get_map_coord()) pinky.set_position(make_pair(14, 15));
-            else if (inky.get_map_coord() == pacman.get_map_coord()) inky.set_position(make_pair(13, 14));
-            else if (clyde.get_map_coord() == pacman.get_map_coord()) clyde.set_position(make_pair(14, 13));
-
-        }else{
-            blinky.setTexture(blinky_mov[int(pac_mov_time+0.01)%2]);
-            pinky.setTexture(pinky_mov[int(pac_mov_time+0.006)%2]);
-            inky.setTexture(inky_mov[int(pac_mov_time+0.001)%2]);
-            clyde.setTexture(clyde_mov[int(pac_mov_time+0.5)%2]);
-        }
-
-        //pacman.rotate(pac_mov_time/10);
-
-        pacman.update(new_target);
-        blinky.update(time <= 0 ? blinky.go_to(pacman.get_position()) : blinky.go_to(random_target(blinky)));
-        pinky.update(time <= 0 ? pinky.go_to(pinky_target(pacman)) : pinky.go_to(random_target(pinky)));
-        inky.update(time <= 0 ? inky.go_to(inky_target(pacman, blinky)) : inky.go_to(random_target(inky)));
-        clyde.update(time <= 0 ? clyde.go_to(clyde_target(clyde, pacman)) : clyde.go_to(random_target(clyde)));
-        */
 
         // check if pacman is the same position as one of ghosts
-        if ((blinky.get_map_coord() == pacman.get_map_coord() || pinky.get_map_coord() == pacman.get_map_coord() || 
-            inky.get_map_coord() == pacman.get_map_coord() || clyde.get_map_coord() == pacman.get_map_coord()) && time < 0){
+        if (blinky.can_kill(pacman, time > 0) || pinky.can_kill(pacman, time > 0) || inky.can_kill(pacman, time > 0) || clyde.can_kill(pacman, time > 0))
             break;
-        }
+        
         time -= 0.00003;
         window.clear();
 

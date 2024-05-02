@@ -92,6 +92,10 @@ class Ghost : public MovingObject {
                 return nearest_move(p);
             return p;
         }
+        bool can_kill(MovingObject pacman, bool scared){
+            if (died) scared = false;
+            return get_map_coord() == pacman.get_map_coord() && !scared;
+        }
         void updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points){
             if (died_time > 0){
                 died_time -= 0.0001;
