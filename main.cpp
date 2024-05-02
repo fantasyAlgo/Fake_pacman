@@ -189,6 +189,10 @@ int main(){
                 powers.erase(powers.begin() + i);
                 i--;
                 time = 1;
+                blinky.setDied(false);
+                pinky.setDied(false);
+                inky.setDied(false);
+                clyde.setDied(false);
             }
             if (i >= 0) window.draw(powers[i]);
         }

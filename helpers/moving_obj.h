@@ -84,6 +84,7 @@ class Ghost : public MovingObject {
             died = false;
             this->scatter_place = scatter_place;
         }
+        void setDied(bool died){this->died = died;}
         pair<int, int> random_target(){
             pair<int, int> p = {getPosition().x/width_ratio, getPosition().y/height_ratio};
             p.first = p.first + (rand()%3)-1;
