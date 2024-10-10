@@ -1,8 +1,10 @@
-vector<sf::RectangleShape> build_map(){
-    vector<sf::RectangleShape> map;
+#include "make_entities.h"
+
+std::vector<sf::RectangleShape> build_map(){
+  std::vector<sf::RectangleShape> map;
     // little optimization
     int width;
-    cout << width_ratio << endl;
+  std::cout << width_ratio << std::endl;
     for (int i = 0; i < MAP_HEIGHT; i++){
         width = width_ratio;
         for (int j = 0; j < MAP_WIDTH; j++){
@@ -20,12 +22,12 @@ vector<sf::RectangleShape> build_map(){
     }
     return map;
 }
-vector<Coin> make_coins(){
-    vector<Coin> coins;
+std::vector<Coin> make_coins(){
+  std::vector<Coin> coins;
     for (int i = 0; i < MAP_HEIGHT; i++){
         for (int j = 0; j < MAP_WIDTH; j++){
             if (pacman_map[i][j] == 0){
-                Coin coin(width_ratio/6, make_pair(j, i));
+                Coin coin(width_ratio/6, std::make_pair(j, i));
                 coin.setFillColor(sf::Color::Yellow);
                 coin.setPosition(j*width_ratio + width_ratio/2, i*height_ratio + height_ratio/2);
                 coins.push_back(coin);
@@ -35,12 +37,12 @@ vector<Coin> make_coins(){
     return coins;
 }
 
-vector<POWER_UP> make_power(){
-    vector<POWER_UP> power;
+std::vector<POWER_UP> make_power(){
+  std::vector<POWER_UP> power;
     for (int i = 0; i < MAP_HEIGHT; i++){
         for (int j = 0; j < MAP_WIDTH; j++){
             if (pacman_map[i][j] == 2){
-                POWER_UP coin(width_ratio/4, make_pair(j, i));
+                POWER_UP coin(width_ratio/4, std::make_pair(j, i));
                 coin.setFillColor(sf::Color::Yellow);
                 coin.setPosition(j*width_ratio + width_ratio/2, i*height_ratio + height_ratio/2);
                 power.push_back(coin);
