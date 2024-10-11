@@ -1,4 +1,5 @@
 #include "Game.hpp"
+#include <SFML/System/Time.hpp>
 
 Game::Game(){
   this->isAlive = true;
@@ -33,7 +34,19 @@ Game::Game(){
   this->init_coins = coins.size();
   this->eat_points = 0;
 }
-void Game::update(){
+
+void Game::Run(){
+  sf::Clock clock;
+  sf::Time time;
+  while (this->isOpen()){
+    time = clock.restart()*7000.0f;
+    std::cout << "time: " << time.asSeconds() << std::endl;
+    this->KeyHandler();
+    this->Update(time);
+    this->Render();
+  }
+}
+void Game::KeyHandler(){
   sf::Event event;
   while (window->pollEvent(event)){
 
@@ -65,16 +78,20 @@ void Game::update(){
         new_target.init = false;
     }
   }
+}
+
+
+void Game::Update(sf::Time deltaTime){
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);
 
   pac_mov_time += 0.001;
-  pacman->update(new_target);
-  blinky->updateGhost(*pacman, *blinky, time > 0, eat_points);
-  pinky->updateGhost(*pacman, *pinky, time > 0, eat_points);
-  inky->updateGhost(*pacman, *blinky, time > 0, eat_points);
-  clyde->updateGhost(*pacman, *clyde, time > 0, eat_points);
+  pacman->update(new_target, deltaTime);
+  blinky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime);
+  pinky->updateGhost(*pacman, *pinky, time > 0, eat_points, deltaTime);
+  inky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime);
+  clyde->updateGhost(*pacman, *clyde, time > 0, eat_points, deltaTime);
 
 
   // check if pacman is the same position as one of ghosts
@@ -82,8 +99,11 @@ void Game::update(){
     this->isAlive = false;
     return;
   }
-  
+  points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
   time -= 0.00003;
+}
+
+void Game::Render(){
   window->clear();
 
   window->draw(*pacman);
@@ -113,11 +133,10 @@ void Game::update(){
     }
     if (i >= 0) window->draw(powers[i]);
   }
-  points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
   window->draw(points);
   window->display();
-
 }
+
 bool Game::isOpen(){
   return this->isAlive;
 }

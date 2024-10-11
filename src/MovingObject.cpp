@@ -24,26 +24,30 @@ std::pair<int, int> MovingObject::get_position(){return p;}
 std::pair<int, int> MovingObject::get_map_coord(){return std::make_pair(getPosition().x/width_ratio, getPosition().y/height_ratio);}
 Target MovingObject::get_target(){return target;}
 
-void MovingObject::update(Target new_target){
-    if (target.is_finished)
-        target = new_target;
-        
-    if (!target.init && !target.is_finished && can_go(p.second + target.d * (target.where == 1), p.first + target.d * (target.where == 0))
-        && pacman_map[p.second + target.d * (target.where == 1)][p.first + target.d * (target.where == 0)] != 1){
-        p.first += target.d * (target.where == 0);
-        p.second += target.d * (target.where == 1);
-        target.init = true;
-    }else if (!target.init && !target.is_finished){
-        target.is_finished = true;
-        target.init = true;
-    }
-    if (!target.is_finished)
-        move(target.d * (target.where == 0) * vel * width_ratio, target.d * (target.where == 1) * vel * height_ratio);
+void MovingObject::update(Target new_target, sf::Time deltaTime){
+  if (target.is_finished)
+      target = new_target;
 
-    if (in_interval(getPosition().x, p.first*width_ratio+width_ratio/POS_DIV, 1) && in_interval(getPosition().y, p.second*height_ratio+height_ratio/POS_DIV, 1)){
-        target.is_finished = true;
-        target.init = true;
-    }
+  //std::cout << target.d << " | " << target.where << " .... " << p.first << p.second <<std::endl;
+  float DT = deltaTime.asSeconds();
+  float nPosX = p.first + target.d * (target.where == 0);
+  float nPosY = p.second + target.d * (target.where == 1);
+     
+  if (!target.init && !target.is_finished && can_go(nPosY, nPosX) && pacman_map[(int)nPosY][(int)nPosX] != 1){
+      p.first = nPosX;
+      p.second = nPosY;
+      target.init = true;
+  }else if (!target.init && !target.is_finished){
+      target.is_finished = true;
+      target.init = true;
+  }
+  if (!target.is_finished)
+      move(target.d * (target.where == 0) * vel * width_ratio * DT, target.d * (target.where == 1) * vel * height_ratio * DT);
+
+  if (in_interval(getPosition().x, p.first*width_ratio+width_ratio/POS_DIV, 1) && in_interval(getPosition().y, p.second*height_ratio+height_ratio/POS_DIV, 1)){
+      target.is_finished = true;
+      target.init = true;
+  }
 }
 Target MovingObject::go_to(std::pair<int, int> target_position){
     std::pair<int, int> p_p = std::make_pair(getPosition().x/width_ratio, getPosition().y/height_ratio);

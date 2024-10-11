@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/MovingObject.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/MovingObject.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/MovingObject.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/MovingObject.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -230,10 +230,10 @@ CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Settings.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
  /usr/include/c++/14.2.1/utility \
  /usr/include/c++/14.2.1/bits/stl_relops.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/helpers.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/helpers.h \
  /usr/include/c++/14.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -253,7 +253,9 @@ CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/pathFinding.h \
+ /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
+ /usr/include/c++/14.2.1/bits/istream.tcc \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
  /usr/include/c++/14.2.1/queue /usr/include/c++/14.2.1/deque \
  /usr/include/c++/14.2.1/bits/stl_deque.h \
  /usr/include/c++/14.2.1/bits/deque.tcc \

@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/textures.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/textures.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/textures.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/textures.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \

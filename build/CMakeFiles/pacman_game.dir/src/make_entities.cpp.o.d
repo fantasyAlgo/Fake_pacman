@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/make_entities.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/make_entities.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/make_entities.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/make_entities.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -232,7 +232,7 @@ CMakeFiles/pacman_game.dir/src/make_entities.cpp.o: \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
  /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
  /usr/include/c++/14.2.1/bits/istream.tcc \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Settings.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Coin.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Coin.hpp \
  /usr/include/c++/14.2.1/utility \
  /usr/include/c++/14.2.1/bits/stl_relops.h

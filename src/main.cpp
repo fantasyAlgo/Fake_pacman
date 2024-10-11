@@ -2,7 +2,7 @@
 
 int main () {
   Game game;
-  while (game.isOpen())
-    game.update();
+  //while (game.isOpen())
+  game.Run();
   return 0;
 }

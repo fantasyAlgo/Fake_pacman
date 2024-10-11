@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/pathFinding.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/pathFinding.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/pathFinding.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
  /usr/include/c++/14.2.1/utility \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -18,7 +18,7 @@ CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o: \
  /usr/include/c++/14.2.1/bits/move.h \
  /usr/include/c++/14.2.1/bits/utility.h \
  /usr/include/c++/14.2.1/initializer_list \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Settings.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
  /usr/include/c++/14.2.1/queue \
  /usr/include/c++/14.2.1/bits/requires_hosted.h \
  /usr/include/c++/14.2.1/deque \

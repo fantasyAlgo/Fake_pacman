@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/Game.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/Game.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/Game.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Game.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Game.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -232,12 +232,12 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
  /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
  /usr/include/c++/14.2.1/bits/istream.tcc \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Settings.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Ghost.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/MovingObject.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Ghost.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/MovingObject.hpp \
  /usr/include/c++/14.2.1/utility \
  /usr/include/c++/14.2.1/bits/stl_relops.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/helpers.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/helpers.h \
  /usr/include/c++/14.2.1/cmath /usr/include/math.h \
  /usr/include/bits/math-vector.h /usr/include/bits/libm-simd-decl-stubs.h \
  /usr/include/bits/flt-eval-method.h /usr/include/bits/fp-logb.h \
@@ -257,12 +257,12 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/pathFinding.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
  /usr/include/c++/14.2.1/queue /usr/include/c++/14.2.1/deque \
  /usr/include/c++/14.2.1/bits/stl_deque.h \
  /usr/include/c++/14.2.1/bits/deque.tcc \
  /usr/include/c++/14.2.1/bits/stl_queue.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/textures.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Coin.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/make_entities.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/ghost_mov.hpp
+ /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Coin.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/ghost_mov.hpp

@@ -3,8 +3,10 @@
 
 #include <SFML/Graphics.hpp>
 #include "Settings.h"
+#include <SFML/System/Time.hpp>
 #include <utility>
 #include "helpers.h"
+#include <iostream>
 #include "pathFinding.h"
 
 class MovingObject : public sf::Sprite {
@@ -25,7 +27,7 @@ class MovingObject : public sf::Sprite {
   std::pair<int, int> get_map_coord();
 
         Target get_target();
-        void update(Target new_target);
+        void update(Target new_target, sf::Time deltaTime);
         Target go_to(std::pair<int, int> target_position);
 
 };

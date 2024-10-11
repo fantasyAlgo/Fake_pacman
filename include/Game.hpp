@@ -12,12 +12,18 @@
 #include "Coin.hpp"
 #include "make_entities.h"
 #include "ghost_mov.hpp"
+#include <SFML/System/Clock.hpp>
+#include <SFML/System/Time.hpp>
+
 
 
 class Game{
 public:
   Game();
-  void update();
+  void KeyHandler();
+  void Update(sf::Time deltaTime);
+  void Render();
+  void Run();
   bool isOpen();
   ~Game();
 private:

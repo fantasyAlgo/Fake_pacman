@@ -1,8 +1,8 @@
 CMakeFiles/pacman_game.dir/src/helpers.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/helpers.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/helpers.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/helpers.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Settings.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/helpers.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
  /usr/include/c++/14.2.1/cmath \
  /usr/include/c++/14.2.1/bits/requires_hosted.h \
  /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h \

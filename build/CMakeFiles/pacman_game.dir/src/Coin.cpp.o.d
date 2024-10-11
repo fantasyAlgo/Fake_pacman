@@ -1,7 +1,7 @@
 CMakeFiles/pacman_game.dir/src/Coin.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/src/Coin.cpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/Coin.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman_refactored2/include/Coin.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/Coin.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
