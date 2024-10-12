@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/fantasy/Programming/cpp/Fake_pacman/src/Coin.cpp" "CMakeFiles/pacman_game.dir/src/Coin.cpp.o" "gcc" "CMakeFiles/pacman_game.dir/src/Coin.cpp.o.d"
+  "/home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp" "CMakeFiles/pacman_game.dir/src/GUI.cpp.o" "gcc" "CMakeFiles/pacman_game.dir/src/GUI.cpp.o.d"
   "/home/fantasy/Programming/cpp/Fake_pacman/src/Game.cpp" "CMakeFiles/pacman_game.dir/src/Game.cpp.o" "gcc" "CMakeFiles/pacman_game.dir/src/Game.cpp.o.d"
   "/home/fantasy/Programming/cpp/Fake_pacman/src/Ghost.cpp" "CMakeFiles/pacman_game.dir/src/Ghost.cpp.o" "gcc" "CMakeFiles/pacman_game.dir/src/Ghost.cpp.o.d"
   "/home/fantasy/Programming/cpp/Fake_pacman/src/MovingObject.cpp" "CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o" "gcc" "CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o.d"

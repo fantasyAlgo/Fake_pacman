@@ -265,4 +265,6 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: \
  /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
  /home/fantasy/Programming/cpp/Fake_pacman/include/Coin.hpp \
  /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/ghost_mov.hpp
+ /home/fantasy/Programming/cpp/Fake_pacman/include/ghost_mov.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/GameStates.h \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/GUI.hpp

@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/pacman_game.dir/src/Coin.cpp.o"
   "CMakeFiles/pacman_game.dir/src/Coin.cpp.o.d"
+  "CMakeFiles/pacman_game.dir/src/GUI.cpp.o"
+  "CMakeFiles/pacman_game.dir/src/GUI.cpp.o.d"
   "CMakeFiles/pacman_game.dir/src/Game.cpp.o"
   "CMakeFiles/pacman_game.dir/src/Game.cpp.o.d"
   "CMakeFiles/pacman_game.dir/src/Ghost.cpp.o"

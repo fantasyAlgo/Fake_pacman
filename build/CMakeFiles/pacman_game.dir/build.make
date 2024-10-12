@@ -83,10 +83,24 @@ CMakeFiles/pacman_game.dir/src/Coin.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/src/Coin.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fantasy/Programming/cpp/Fake_pacman/src/Coin.cpp -o CMakeFiles/pacman_game.dir/src/Coin.cpp.s
 
+CMakeFiles/pacman_game.dir/src/GUI.cpp.o: CMakeFiles/pacman_game.dir/flags.make
+CMakeFiles/pacman_game.dir/src/GUI.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp
+CMakeFiles/pacman_game.dir/src/GUI.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/pacman_game.dir/src/GUI.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/GUI.cpp.o -MF CMakeFiles/pacman_game.dir/src/GUI.cpp.o.d -o CMakeFiles/pacman_game.dir/src/GUI.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp
+
+CMakeFiles/pacman_game.dir/src/GUI.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/pacman_game.dir/src/GUI.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp > CMakeFiles/pacman_game.dir/src/GUI.cpp.i
+
+CMakeFiles/pacman_game.dir/src/GUI.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/pacman_game.dir/src/GUI.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp -o CMakeFiles/pacman_game.dir/src/GUI.cpp.s
+
 CMakeFiles/pacman_game.dir/src/Game.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/Game.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/Game.cpp
 CMakeFiles/pacman_game.dir/src/Game.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/pacman_game.dir/src/Game.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pacman_game.dir/src/Game.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/Game.cpp.o -MF CMakeFiles/pacman_game.dir/src/Game.cpp.o.d -o CMakeFiles/pacman_game.dir/src/Game.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/Game.cpp
 
 CMakeFiles/pacman_game.dir/src/Game.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/Ghost.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/Ghost.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/Ghost.cpp
 CMakeFiles/pacman_game.dir/src/Ghost.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/pacman_game.dir/src/Ghost.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pacman_game.dir/src/Ghost.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/Ghost.cpp.o -MF CMakeFiles/pacman_game.dir/src/Ghost.cpp.o.d -o CMakeFiles/pacman_game.dir/src/Ghost.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/Ghost.cpp
 
 CMakeFiles/pacman_game.dir/src/Ghost.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/pacman_game.dir/src/Ghost.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/MovingObject.cpp
 CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o -MF CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o.d -o CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/MovingObject.cpp
 
 CMakeFiles/pacman_game.dir/src/MovingObject.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/pacman_game.dir/src/MovingObject.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/Settings.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/Settings.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/Settings.cpp
 CMakeFiles/pacman_game.dir/src/Settings.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/pacman_game.dir/src/Settings.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/pacman_game.dir/src/Settings.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/Settings.cpp.o -MF CMakeFiles/pacman_game.dir/src/Settings.cpp.o.d -o CMakeFiles/pacman_game.dir/src/Settings.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/Settings.cpp
 
 CMakeFiles/pacman_game.dir/src/Settings.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/pacman_game.dir/src/Settings.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/ghost_mov.cpp
 CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o -MF CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o.d -o CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/ghost_mov.cpp
 
 CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/pacman_game.dir/src/ghost_mov.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/helpers.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/helpers.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/helpers.cpp
 CMakeFiles/pacman_game.dir/src/helpers.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/pacman_game.dir/src/helpers.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/pacman_game.dir/src/helpers.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/helpers.cpp.o -MF CMakeFiles/pacman_game.dir/src/helpers.cpp.o.d -o CMakeFiles/pacman_game.dir/src/helpers.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/helpers.cpp
 
 CMakeFiles/pacman_game.dir/src/helpers.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/pacman_game.dir/src/helpers.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/main.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/main.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/main.cpp
 CMakeFiles/pacman_game.dir/src/main.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/pacman_game.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/pacman_game.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/main.cpp.o -MF CMakeFiles/pacman_game.dir/src/main.cpp.o.d -o CMakeFiles/pacman_game.dir/src/main.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/main.cpp
 
 CMakeFiles/pacman_game.dir/src/main.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/pacman_game.dir/src/main.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/make_entities.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/make_entities.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/make_entities.cpp
 CMakeFiles/pacman_game.dir/src/make_entities.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/pacman_game.dir/src/make_entities.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/pacman_game.dir/src/make_entities.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/make_entities.cpp.o -MF CMakeFiles/pacman_game.dir/src/make_entities.cpp.o.d -o CMakeFiles/pacman_game.dir/src/make_entities.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/make_entities.cpp
 
 CMakeFiles/pacman_game.dir/src/make_entities.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/pacman_game.dir/src/make_entities.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/pathFinding.cpp
 CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o -MF CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o.d -o CMakeFiles/pacman_game.dir/src/pathFinding.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/pathFinding.cpp
 
 CMakeFiles/pacman_game.dir/src/pathFinding.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/pacman_game.dir/src/pathFinding.cpp.s: cmake_force
 CMakeFiles/pacman_game.dir/src/textures.cpp.o: CMakeFiles/pacman_game.dir/flags.make
 CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fake_pacman/src/textures.cpp
 CMakeFiles/pacman_game.dir/src/textures.cpp.o: CMakeFiles/pacman_game.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/pacman_game.dir/src/textures.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/pacman_game.dir/src/textures.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/pacman_game.dir/src/textures.cpp.o -MF CMakeFiles/pacman_game.dir/src/textures.cpp.o.d -o CMakeFiles/pacman_game.dir/src/textures.cpp.o -c /home/fantasy/Programming/cpp/Fake_pacman/src/textures.cpp
 
 CMakeFiles/pacman_game.dir/src/textures.cpp.i: cmake_force
@@ -226,6 +240,7 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.s: cmake_force
 # Object files for target pacman_game
 pacman_game_OBJECTS = \
 "CMakeFiles/pacman_game.dir/src/Coin.cpp.o" \
+"CMakeFiles/pacman_game.dir/src/GUI.cpp.o" \
 "CMakeFiles/pacman_game.dir/src/Game.cpp.o" \
 "CMakeFiles/pacman_game.dir/src/Ghost.cpp.o" \
 "CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o" \
@@ -241,6 +256,7 @@ pacman_game_OBJECTS = \
 pacman_game_EXTERNAL_OBJECTS =
 
 pacman_game: CMakeFiles/pacman_game.dir/src/Coin.cpp.o
+pacman_game: CMakeFiles/pacman_game.dir/src/GUI.cpp.o
 pacman_game: CMakeFiles/pacman_game.dir/src/Game.cpp.o
 pacman_game: CMakeFiles/pacman_game.dir/src/Ghost.cpp.o
 pacman_game: CMakeFiles/pacman_game.dir/src/MovingObject.cpp.o
@@ -257,7 +273,7 @@ pacman_game: /usr/lib/libsfml-audio.so.2.6.1
 pacman_game: /usr/lib/libsfml-window.so.2.6.1
 pacman_game: /usr/lib/libsfml-system.so.2.6.1
 pacman_game: CMakeFiles/pacman_game.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Linking CXX executable pacman_game"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Linking CXX executable pacman_game"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pacman_game.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

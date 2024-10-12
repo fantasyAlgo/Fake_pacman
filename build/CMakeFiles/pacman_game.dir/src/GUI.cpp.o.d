@@ -1,7 +1,7 @@
-CMakeFiles/pacman_game.dir/src/main.cpp.o: \
- /home/fantasy/Programming/cpp/Fake_pacman/src/main.cpp \
+CMakeFiles/pacman_game.dir/src/GUI.cpp.o: \
+ /home/fantasy/Programming/cpp/Fake_pacman/src/GUI.cpp \
  /usr/include/stdc-predef.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/Game.hpp \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/GUI.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -230,11 +230,7 @@ CMakeFiles/pacman_game.dir/src/main.cpp.o: \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
- /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
- /usr/include/c++/14.2.1/bits/istream.tcc \
  /home/fantasy/Programming/cpp/Fake_pacman/include/Settings.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/Ghost.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman/include/MovingObject.hpp \
  /usr/include/c++/14.2.1/utility \
  /usr/include/c++/14.2.1/bits/stl_relops.h \
  /home/fantasy/Programming/cpp/Fake_pacman/include/helpers.h \
@@ -257,14 +253,6 @@ CMakeFiles/pacman_game.dir/src/main.cpp.o: \
  /usr/include/c++/14.2.1/tr1/poly_hermite.tcc \
  /usr/include/c++/14.2.1/tr1/poly_laguerre.tcc \
  /usr/include/c++/14.2.1/tr1/riemann_zeta.tcc \
- /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
- /usr/include/c++/14.2.1/queue /usr/include/c++/14.2.1/deque \
- /usr/include/c++/14.2.1/bits/stl_deque.h \
- /usr/include/c++/14.2.1/bits/deque.tcc \
- /usr/include/c++/14.2.1/bits/stl_queue.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/Coin.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/ghost_mov.hpp \
- /home/fantasy/Programming/cpp/Fake_pacman/include/GameStates.h \
- /home/fantasy/Programming/cpp/Fake_pacman/include/GUI.hpp
+ /usr/include/c++/14.2.1/iostream /usr/include/c++/14.2.1/istream \
+ /usr/include/c++/14.2.1/bits/istream.tcc \
+ /home/fantasy/Programming/cpp/Fake_pacman/include/GameStates.h

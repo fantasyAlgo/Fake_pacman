@@ -12,6 +12,9 @@
 #include "Coin.hpp"
 #include "make_entities.h"
 #include "ghost_mov.hpp"
+#include "GameStates.h"
+#include "GUI.hpp"
+
 #include <SFML/System/Clock.hpp>
 #include <SFML/System/Time.hpp>
 
@@ -21,13 +24,16 @@ class Game{
 public:
   Game();
   void KeyHandler();
-  void Update(sf::Time deltaTime);
+  void Reset();
+  GameState Update(sf::Time deltaTime);
   void Render();
   void Run();
   bool isOpen();
   ~Game();
 private:
   bool isAlive;
+  GameState state;
+  GUI gui;
 
   sf::RenderWindow *window;
   MovingObject *pacman;

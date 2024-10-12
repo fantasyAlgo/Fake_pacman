@@ -1,5 +1,7 @@
 #include "Game.hpp"
-#include <SFML/System/Time.hpp>
+#include <SFML/Window/Keyboard.hpp>
+#include <algorithm>
+#include <iostream>
 
 Game::Game(){
   this->isAlive = true;
@@ -15,7 +17,7 @@ Game::Game(){
   this->clyde = new Ghost(width_ratio/sizeDivisor, VELOCITY, std::make_pair(14, 13), clyde_mov, clyde_target, std::make_pair(MAP_HEIGHT-1, 1));
   this->pinky = new Ghost(width_ratio/sizeDivisor, VELOCITY, std::make_pair(14, 15), pinky_mov, pinky_target, std::make_pair(1, MAP_HEIGHT-2));
 
-  this->font.loadFromFile("assets/arial.ttf");
+  this->font.loadFromFile("assets/Emulogic.ttf");
   this->points.setFont(font);
   this->points.setCharacterSize(24);
   this->points.setFillColor(sf::Color::White);
@@ -26,32 +28,65 @@ Game::Game(){
   this->powers = make_power();
 
   srand(0);
-  int p_x = 15;
-  int p_y = 11;
   this->pac_mov_time = 0;
 
   this->time = 0;
   this->init_coins = coins.size();
   this->eat_points = 0;
+
+  this->state = GameState::Home;
+}
+
+void Game::Reset(){
+  this->coins = make_coins();
+  this->powers = make_power();
+
+  this->pacman->set_position(std::make_pair(17, 19));
+  this->blinky->set_position(std::make_pair(14, 14));
+  this->inky->set_position(std::make_pair(13, 14));
+  this->clyde->set_position(std::make_pair(14, 13));
+  this->pinky->set_position(std::make_pair(14, 15));
+
+  this->points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
+  this->state = GameState::RunGame;
+  this->new_target = {0, -1, 0, 0};
 }
 
 void Game::Run(){
   sf::Clock clock;
   sf::Time time;
-  while (this->isOpen()){
+  while (true){
     time = clock.restart()*7000.0f;
-    std::cout << "time: " << time.asSeconds() << std::endl;
     this->KeyHandler();
-    this->Update(time);
-    this->Render();
+    switch (this->state) {
+     case GameState::KillProgram:
+        return;
+     case GameState::RunGame:
+        this->state = this->Update(time);
+        this->Render();
+        break;
+      case GameState::Home:
+        this->state = gui.DrawHomeScreen(*this->window);
+        break;
+      case GameState::Death:
+        this->state = gui.DrawDeathScreen(*this->window);
+        break;
+      case GameState::PrepareRun:
+        this->Reset();
+        this->state = GameState::RunGame;
+        break;
+    }
   }
 }
+
 void Game::KeyHandler(){
   sf::Event event;
   while (window->pollEvent(event)){
 
-    if (event.type == sf::Event::Closed)
-        window->close();
+    if (event.type == sf::Event::Closed){
+      window->close();
+      this->state=  GameState::KillProgram;
+    }
 
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){
         new_target.d = 1;
@@ -77,11 +112,20 @@ void Game::KeyHandler(){
         new_target.is_finished = false;
         new_target.init = false;
     }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+      gui.goUp(state);
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
+      gui.goDown();
+    }
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
+      gui.isEnterPressed = true;
+    }else gui.isEnterPressed = false;
   }
 }
 
 
-void Game::Update(sf::Time deltaTime){
+GameState Game::Update(sf::Time deltaTime){
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);
@@ -97,10 +141,13 @@ void Game::Update(sf::Time deltaTime){
   // check if pacman is the same position as one of ghosts
   if (blinky->can_kill(*pacman, time > 0) || pinky->can_kill(*pacman, time > 0) || inky->can_kill(*pacman, time > 0) || clyde->can_kill(*pacman, time > 0)){
     this->isAlive = false;
-    return;
+    std::cout << "Goddam" << std::endl;
+    gui.isEnterPressed = false;
+    return GameState::Home;
   }
   points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
   time -= 0.00003;
+  return GameState::RunGame;
 }
 
 void Game::Render(){

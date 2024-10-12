@@ -153,6 +153,30 @@ src/Coin.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/src/Coin.cpp.s
 .PHONY : src/Coin.cpp.s
 
+src/GUI.o: src/GUI.cpp.o
+.PHONY : src/GUI.o
+
+# target to build an object file
+src/GUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/src/GUI.cpp.o
+.PHONY : src/GUI.cpp.o
+
+src/GUI.i: src/GUI.cpp.i
+.PHONY : src/GUI.i
+
+# target to preprocess a source file
+src/GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/src/GUI.cpp.i
+.PHONY : src/GUI.cpp.i
+
+src/GUI.s: src/GUI.cpp.s
+.PHONY : src/GUI.s
+
+# target to generate assembly for a file
+src/GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/pacman_game.dir/build.make CMakeFiles/pacman_game.dir/src/GUI.cpp.s
+.PHONY : src/GUI.cpp.s
+
 src/Game.o: src/Game.cpp.o
 .PHONY : src/Game.o
 
@@ -405,6 +429,9 @@ help:
 	@echo "... src/Coin.o"
 	@echo "... src/Coin.i"
 	@echo "... src/Coin.s"
+	@echo "... src/GUI.o"
+	@echo "... src/GUI.i"
+	@echo "... src/GUI.s"
 	@echo "... src/Game.o"
 	@echo "... src/Game.i"
 	@echo "... src/Game.s"
