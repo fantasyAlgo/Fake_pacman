@@ -56,7 +56,7 @@ GameState GUI::DrawHomeScreen(sf::RenderWindow &window){
   if (this->pointer_pos == 0) this->exit_game.text.setString("> " + this->exit_game.name);
   else this->new_game.text.setString("> " + this->new_game.name);
 
-  window.draw(this->maze_ui);
+  //window.draw(this->maze_ui);
   window.draw(this->game_name);
   window.draw(this->new_game.text);
   window.draw(this->exit_game.text);

@@ -23,7 +23,9 @@ class Ghost : public MovingObject {
   std::pair<int, int> random_target();
     void setDied(bool died);
     bool can_kill(MovingObject &pacman, bool scared);
-    void updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points, sf::Time deltaTime);
+
+    // This function returns if the ghost has been eaten or not
+    bool updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points, sf::Time deltaTime);
 };
 
 #endif

@@ -2,7 +2,7 @@
 A simple remake of the pac-man game in SFML
 
 ### Todo
-- [ ] A GUI
+- [x] A GUI
 - [ ] beautify the walls
 - [ ] Ability to change (and create) maps
 

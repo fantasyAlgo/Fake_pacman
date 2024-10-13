@@ -22,23 +22,27 @@ bool Ghost::can_kill(MovingObject &pacman, bool scared){
     if (died) scared = false;
     return get_map_coord() == pacman.get_map_coord() && !scared;
 }
-void Ghost::updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points, sf::Time deltaTIme){
-    if (died_time > 0){
-        died_time -= 0.0001;
-        return;
-    }
-    if (scared == false) died = false;
-    if (died) scared = false;
-    if (int(time)%100 > 60 && int(time)%1000 < 85 && !scared) update(go_to(scatter_place), deltaTIme);
-    else update(go_to(!scared ? action(pacman, guest) : random_target()), deltaTIme);
-    setTexture(!scared ? move_texture[int(time+0.01)%2] : scared_ghost[int(time+0.01)%2]);
-    // Check if pacman has collided to the ghost
-    if (get_map_coord() == pacman.get_map_coord() && scared){
-        set_position(std::make_pair(14, 14));
-        died_time = 1;
-        died = true;
-        eat_points += 10;
-    }
-    time += 0.001;
+bool Ghost::updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points, sf::Time deltaTIme){
+  if (died_time > 0){
+      died_time -= 0.0001;
+      return false;
+  }
+  if (scared == false) died = false;
+  if (died) scared = false;
+  if (int(time)%100 > 60 && int(time)%1000 < 85 && !scared) update(go_to(scatter_place), deltaTIme);
+  else update(go_to(!scared ? action(pacman, guest) : random_target()), deltaTIme);
+  setTexture(!scared ? move_texture[int(time+0.01)%2] : scared_ghost[int(time+0.01)%2]);
+  time += 0.001;
+
+  // Check if pacman has collided to the ghost
+  if (get_map_coord() == pacman.get_map_coord() && scared){
+    set_position(std::make_pair(14, 14));
+    died_time = 1;
+    died = true;
+    eat_points += 10;
+    return true;
+  }
+  return false;
+
 }
 

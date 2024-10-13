@@ -645,6 +645,23 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
   /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
   /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/Graphics.hpp \
   /usr/include/SFML/Graphics/BlendMode.hpp \
@@ -859,9 +876,11 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /usr/include/c++/14.2.1/bits/stl_iterator_base_types.h \
   /usr/include/c++/14.2.1/bits/stl_map.h \
   /usr/include/c++/14.2.1/bits/stl_multimap.h \
+  /usr/include/c++/14.2.1/bits/stl_multiset.h \
   /usr/include/c++/14.2.1/bits/stl_pair.h \
   /usr/include/c++/14.2.1/bits/stl_queue.h \
   /usr/include/c++/14.2.1/bits/stl_relops.h \
+  /usr/include/c++/14.2.1/bits/stl_set.h \
   /usr/include/c++/14.2.1/bits/stl_tempbuf.h \
   /usr/include/c++/14.2.1/bits/stl_tree.h \
   /usr/include/c++/14.2.1/bits/stl_uninitialized.h \
@@ -913,6 +932,7 @@ CMakeFiles/pacman_game.dir/src/Game.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /usr/include/c++/14.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14.2.1/pstl/pstl_config.h \
   /usr/include/c++/14.2.1/queue \
+  /usr/include/c++/14.2.1/set \
   /usr/include/c++/14.2.1/stdexcept \
   /usr/include/c++/14.2.1/streambuf \
   /usr/include/c++/14.2.1/string \
@@ -2108,6 +2128,23 @@ CMakeFiles/pacman_game.dir/src/main.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h \
   /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h \
   /home/fantasy/Programming/cpp/Fake_pacman/include/textures.h \
+  /usr/include/SFML/Audio.hpp \
+  /usr/include/SFML/Audio/AlResource.hpp \
+  /usr/include/SFML/Audio/Export.hpp \
+  /usr/include/SFML/Audio/InputSoundFile.hpp \
+  /usr/include/SFML/Audio/Listener.hpp \
+  /usr/include/SFML/Audio/Music.hpp \
+  /usr/include/SFML/Audio/OutputSoundFile.hpp \
+  /usr/include/SFML/Audio/Sound.hpp \
+  /usr/include/SFML/Audio/SoundBuffer.hpp \
+  /usr/include/SFML/Audio/SoundBufferRecorder.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.hpp \
+  /usr/include/SFML/Audio/SoundFileFactory.inl \
+  /usr/include/SFML/Audio/SoundFileReader.hpp \
+  /usr/include/SFML/Audio/SoundFileWriter.hpp \
+  /usr/include/SFML/Audio/SoundRecorder.hpp \
+  /usr/include/SFML/Audio/SoundSource.hpp \
+  /usr/include/SFML/Audio/SoundStream.hpp \
   /usr/include/SFML/Config.hpp \
   /usr/include/SFML/Graphics.hpp \
   /usr/include/SFML/Graphics/BlendMode.hpp \
@@ -2322,9 +2359,11 @@ CMakeFiles/pacman_game.dir/src/main.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /usr/include/c++/14.2.1/bits/stl_iterator_base_types.h \
   /usr/include/c++/14.2.1/bits/stl_map.h \
   /usr/include/c++/14.2.1/bits/stl_multimap.h \
+  /usr/include/c++/14.2.1/bits/stl_multiset.h \
   /usr/include/c++/14.2.1/bits/stl_pair.h \
   /usr/include/c++/14.2.1/bits/stl_queue.h \
   /usr/include/c++/14.2.1/bits/stl_relops.h \
+  /usr/include/c++/14.2.1/bits/stl_set.h \
   /usr/include/c++/14.2.1/bits/stl_tempbuf.h \
   /usr/include/c++/14.2.1/bits/stl_tree.h \
   /usr/include/c++/14.2.1/bits/stl_uninitialized.h \
@@ -2376,6 +2415,7 @@ CMakeFiles/pacman_game.dir/src/main.cpp.o: /home/fantasy/Programming/cpp/Fake_pa
   /usr/include/c++/14.2.1/pstl/glue_algorithm_defs.h \
   /usr/include/c++/14.2.1/pstl/pstl_config.h \
   /usr/include/c++/14.2.1/queue \
+  /usr/include/c++/14.2.1/set \
   /usr/include/c++/14.2.1/stdexcept \
   /usr/include/c++/14.2.1/streambuf \
   /usr/include/c++/14.2.1/string \
@@ -3126,15 +3166,41 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 
 /home/fantasy/Programming/cpp/Fake_pacman/src/ghost_mov.cpp:
 
+/usr/include/c++/14.2.1/set:
+
 /usr/include/c++/14.2.1/deque:
+
+/usr/include/c++/14.2.1/bits/stl_set.h:
 
 /usr/include/c++/14.2.1/bits/stl_queue.h:
 
+/usr/include/c++/14.2.1/bits/stl_multiset.h:
+
 /usr/include/c++/14.2.1/bits/deque.tcc:
+
+/usr/include/SFML/Audio/SoundSource.hpp:
+
+/usr/include/SFML/Audio/SoundFileReader.hpp:
+
+/usr/include/SFML/Audio/SoundFileFactory.hpp:
+
+/usr/include/SFML/Audio/Sound.hpp:
+
+/usr/include/SFML/Audio/OutputSoundFile.hpp:
+
+/usr/include/SFML/Audio/Listener.hpp:
+
+/usr/include/SFML/Audio/InputSoundFile.hpp:
+
+/usr/include/SFML/Audio/Export.hpp:
+
+/usr/include/SFML/Audio/AlResource.hpp:
 
 /home/fantasy/Programming/cpp/Fake_pacman/include/pathFinding.h:
 
 /home/fantasy/Programming/cpp/Fake_pacman/include/make_entities.h:
+
+/usr/include/SFML/Audio/SoundBufferRecorder.hpp:
 
 /home/fantasy/Programming/cpp/Fake_pacman/include/ghost_mov.hpp:
 
@@ -3161,6 +3227,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 /usr/include/c++/14.2.1/cmath:
 
 /usr/include/c++/14.2.1/bits/istream.tcc:
+
+/usr/include/SFML/Audio/SoundRecorder.hpp:
 
 /usr/include/bits/mathcalls.h:
 
@@ -3225,6 +3293,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++locale.h:
 
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/c++config.h:
+
+/usr/include/SFML/Audio/SoundStream.hpp:
 
 /usr/include/bits/types/struct_FILE.h:
 
@@ -3297,6 +3367,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 /usr/include/SFML/Window/WindowStyle.hpp:
 
 /usr/include/SFML/Window/WindowHandle.hpp:
+
+/usr/include/SFML/Audio.hpp:
 
 /usr/include/SFML/System/ThreadLocalPtr.inl:
 
@@ -3420,6 +3492,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 
 /usr/include/SFML/Graphics/CircleShape.hpp:
 
+/usr/include/SFML/Audio/SoundBuffer.hpp:
+
 /usr/include/c++/14.2.1/vector:
 
 /usr/include/bits/floatn-common.h:
@@ -3536,6 +3610,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 
 /usr/include/SFML/System/NonCopyable.hpp:
 
+/usr/include/SFML/Audio/SoundFileWriter.hpp:
+
 /usr/include/c++/14.2.1/x86_64-pc-linux-gnu/bits/gthr.h:
 
 /usr/include/bits/stdint-least.h:
@@ -3589,6 +3665,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 /usr/include/SFML/Window/Sensor.hpp:
 
 /usr/include/bits/types/struct_timespec.h:
+
+/usr/include/SFML/Audio/Music.hpp:
 
 /usr/include/bits/types/struct_timeval.h:
 
@@ -3801,6 +3879,8 @@ CMakeFiles/pacman_game.dir/src/textures.cpp.o: /home/fantasy/Programming/cpp/Fak
 /usr/include/c++/14.2.1/bits/functional_hash.h:
 
 /usr/include/c++/14.2.1/ext/alloc_traits.h:
+
+/usr/include/SFML/Audio/SoundFileFactory.inl:
 
 /usr/include/c++/14.2.1/ext/numeric_traits.h:
 

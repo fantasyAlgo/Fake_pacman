@@ -1,26 +1,59 @@
 #include "make_entities.h"
 
-std::vector<sf::RectangleShape> build_map(){
+
+sf::Texture build_map(sf::Texture &atlasTexture){
   std::vector<sf::RectangleShape> map;
-    // little optimization
-    int width;
+
+
+  sf::RenderTexture renderTexture;
+  if (!renderTexture.create(SCREEN_WIDTH, SCREEN_HEIGHT)) throw std::runtime_error("renderTexture is not working!");
+  sf::Sprite sprite;
+  sprite.setTexture(atlasTexture);
+  renderTexture.clear();
+
+  // little optimization
+  int width;
   std::cout << width_ratio << std::endl;
-    for (int i = 0; i < MAP_HEIGHT; i++){
-        width = width_ratio;
-        for (int j = 0; j < MAP_WIDTH; j++){
-            if (pacman_map[i][j] == 1 && j+1 < MAP_WIDTH && pacman_map[i][j+1] == 1){
-                width += width_ratio;
-            } else if (pacman_map[i][j] == 1) {
-                sf::RectangleShape rect(sf::Vector2f(width, height_ratio));
-                rect.setPosition(j*width_ratio - width + width_ratio, i*height_ratio);
-                rect.setSize(sf::Vector2f(width, height_ratio));
-                rect.setFillColor(sf::Color::Blue);
-                map.push_back(rect);
-                width = width_ratio;
-            }
-        }
+
+  sf::IntRect tileRect;
+  // Does not work cat!!!!!!!!
+  for (int i = 0; i < MAP_HEIGHT; i++){
+
+    width = width_ratio;
+    for (int j = 0; j < MAP_WIDTH; j++){
+      if (pacman_map[i][j] != 1) continue;
+      tileRect = sf::IntRect(0, 0, 16, 16);
+      if ( (j-1 >= 0 && pacman_map[i][j-1] == 1) && (j+1 < MAP_WIDTH && pacman_map[i][j+1] == 1)) tileRect = sf::IntRect(16*6,0, 16, 16);
+      if ( (i-1 >= 0 && pacman_map[i-1][j] == 1) && (i+1 < MAP_HEIGHT && pacman_map[i+1][j] == 1)) tileRect = sf::IntRect(16*9,0, 16, 16);
+
+      if ((j-1 >= 0 && pacman_map[i][j-1] != 1) && (j+1 < MAP_WIDTH && pacman_map[i][j+1] == 1) &&
+          (i-1 >= 0 && pacman_map[i-1][j] != 1) && (i+1 < MAP_HEIGHT && pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*4,0, 16, 16);
+
+      if ((j-1 >= 0 && pacman_map[i][j-1] == 1) && (j+1 < MAP_WIDTH && pacman_map[i][j+1] != 1) &&
+          (i-1 >= 0 && pacman_map[i-1][j] != 1) && (i+1 < MAP_HEIGHT && pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*2,0, 16, 16);
+
+      if ((j-1 >= 0 && pacman_map[i][j-1] == 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] != 1) && (i+1 < MAP_HEIGHT && pacman_map[i+1][j] == 1)) tileRect = sf::IntRect(16*3,0, 16, 16);
+
+      if ((j-1 < 0 || pacman_map[i][j-1] != 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] == 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] != 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] == 1)) tileRect = sf::IntRect(16*5,0, 16, 16);
+
+      if ((j-1 < 0 || pacman_map[i][j-1] != 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] == 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] == 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*12,0, 16, 16);
+
+      if ((j-1 < 0 || pacman_map[i][j-1] == 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] == 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*10,0, 16, 16);
+
+
+      sprite.setTextureRect(tileRect);
+      sprite.setScale(2.0f, 2.0f);
+      sprite.setPosition((j+1)*width_ratio - width, i*height_ratio);
+      renderTexture.draw(sprite);
+
     }
-    return map;
+  }
+  renderTexture.display();
+  return renderTexture.getTexture();
 }
 std::vector<Coin> make_coins(){
   std::vector<Coin> coins;

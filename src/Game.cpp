@@ -1,7 +1,12 @@
 #include "Game.hpp"
+#include <SFML/Graphics/Texture.hpp>
 #include <SFML/Window/Keyboard.hpp>
 #include <algorithm>
+#include <cstdio>
 #include <iostream>
+#include <iterator>
+#include <ostream>
+#include <stdexcept>
 
 Game::Game(){
   this->isAlive = true;
@@ -23,9 +28,21 @@ Game::Game(){
   this->points.setFillColor(sf::Color::White);
   this->points.setPosition(5, 5);
 
-  this->map = build_map();
+  this->mapTexture = build_map(atlasTexture);
+  this->mapSprite.setTexture(this->mapTexture);
+
   this->coins = make_coins();
   this->powers = make_power();
+
+  // Music
+  if (!this->beginMusic.openFromFile("assets/music/pacman_beginning.wav")) throw std::runtime_error("Begin music bad!");
+  if (!this->deathMusic.openFromFile("assets/music/pacman_death.wav")) throw std::runtime_error("Death music bad bad!");
+  if (!this->pacman_chomp_buf.loadFromFile("assets/music/pacman_chomp.wav")) throw std::runtime_error("Chomp bad!");
+  if (!this->ghost_death_buf.loadFromFile("assets/music/pacman_eatghost.wav")) throw std::runtime_error("Ghost death bad!");
+  this->beginMusic.setVolume(30.0f);
+  this->deathMusic.setVolume(30.0f);
+  this->pacman_chomp.setBuffer(this->pacman_chomp_buf);
+  this->ghost_death.setBuffer(this->ghost_death_buf);
 
   srand(0);
   this->pac_mov_time = 0;
@@ -35,6 +52,7 @@ Game::Game(){
   this->eat_points = 0;
 
   this->state = GameState::Home;
+
 }
 
 void Game::Reset(){
@@ -50,13 +68,17 @@ void Game::Reset(){
   this->points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
   this->state = GameState::RunGame;
   this->new_target = {0, -1, 0, 0};
+  this->beginMusic.play();
+
+  this->peace_time = this->beginMusic.getDuration().asSeconds();
+  this->death_animation = false;
 }
 
 void Game::Run(){
   sf::Clock clock;
   sf::Time time;
   while (true){
-    time = clock.restart()*7000.0f;
+    time = clock.restart()*TIME_SPEED;
     this->KeyHandler();
     switch (this->state) {
      case GameState::KillProgram:
@@ -126,32 +148,54 @@ void Game::KeyHandler(){
 
 
 GameState Game::Update(sf::Time deltaTime){
+  if (this->death_animation){
+    float step = (this->death_time)/this->deathMusic.getDuration().asSeconds() ;
+    pacman->setTexture(pacman_death[step >= 0 ? 9-(int)(step*9.0f) : 0]);
+    this->death_time -= deltaTime.asSeconds()/TIME_SPEED;
+    if (this->death_time < 0){
+      this->isAlive = false;
+      this->death_animation = false;
+      return GameState::Home;
+    }
+    return GameState::RunGame;
+  }
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);
-
   pac_mov_time += 0.001;
+
+  this->peace_time -= deltaTime.asSeconds()/TIME_SPEED;
+  if (this->peace_time > 0) return GameState::RunGame;
+
   pacman->update(new_target, deltaTime);
-  blinky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime);
-  pinky->updateGhost(*pacman, *pinky, time > 0, eat_points, deltaTime);
-  inky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime);
-  clyde->updateGhost(*pacman, *clyde, time > 0, eat_points, deltaTime);
+  if (blinky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime)) ghost_death.play(); 
+  if (pinky->updateGhost(*pacman, *pinky, time > 0, eat_points, deltaTime)) ghost_death.play();
+  if (inky->updateGhost(*pacman, *blinky, time > 0, eat_points, deltaTime)) ghost_death.play();
+  if (clyde->updateGhost(*pacman, *clyde, time > 0, eat_points, deltaTime)) ghost_death.play();
 
 
   // check if pacman is the same position as one of ghosts
   if (blinky->can_kill(*pacman, time > 0) || pinky->can_kill(*pacman, time > 0) || inky->can_kill(*pacman, time > 0) || clyde->can_kill(*pacman, time > 0)){
     this->isAlive = false;
+    this->deathMusic.play();
+    this->death_time = this->deathMusic.getDuration().asSeconds();
+    this->death_animation = true;
+    this->death_frame = 0;
+
+
     std::cout << "Goddam" << std::endl;
     gui.isEnterPressed = false;
-    return GameState::Home;
+    return GameState::RunGame;
   }
   points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
-  time -= 0.00003;
+  time -= 0.000015;
   return GameState::RunGame;
 }
 
 void Game::Render(){
   window->clear();
+
+  window->draw(this->mapSprite);
 
   window->draw(*pacman);
   window->draw(*pinky);
@@ -159,12 +203,15 @@ void Game::Render(){
   window->draw(*clyde);
   window->draw(*blinky);
 
-  for (int i = 0; i < map.size(); i++)
-      window->draw(map[i]);
+
+  // for (int i = 0; i < map.size(); i++)
+  //    window->draw(map[i]);
+  
   for (int i = 0; i < coins.size(); i++){
     if (int(pacman->getPosition().x/width_ratio) == coins[i].get_index().first && int(pacman->getPosition().y/height_ratio) == coins[i].get_index().second){
-        coins.erase(coins.begin() + i);
-        i--;
+      coins.erase(coins.begin() + i);
+      i--;
+      pacman_chomp.play();
     }
     if (i >= 0) window->draw(coins[i]);
   }
