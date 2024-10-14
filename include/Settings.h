@@ -2,6 +2,10 @@
 //#define Settings_H
 #pragma once
 
+#include <iostream>
+#include <cstdio>
+#include <fstream>
+
 #define INFTY INT_MAX
 #define POWER_UP Coin
 
@@ -20,3 +24,6 @@ const float TIME_SPEED = 7000.0f;
 extern int pacman_map[MAP_HEIGHT][MAP_WIDTH];
 
 //#endif // !Settings_H
+
+
+void loadMap(std::string mapFile);

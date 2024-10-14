@@ -9,6 +9,7 @@
 #include <stdexcept>
 
 Game::Game(){
+  loadMap("mazes/maze1.map");
   this->isAlive = true;
 
   this->window = new sf::RenderWindow(sf::VideoMode(SCREEN_WIDTH, SCREEN_HEIGHT), "FakePacman");
@@ -72,6 +73,7 @@ void Game::Reset(){
 
   this->peace_time = this->beginMusic.getDuration().asSeconds();
   this->death_animation = false;
+  this->time = 0;
 }
 
 void Game::Run(){
@@ -159,6 +161,7 @@ GameState Game::Update(sf::Time deltaTime){
     }
     return GameState::RunGame;
   }
+  std::cout << pac[int(pac_mov_time)%3] << std::endl;
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);

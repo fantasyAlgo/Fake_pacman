@@ -12,7 +12,7 @@ sf::Texture pacman_death[10];
 sf::Texture atlasTexture;
 
 void load_textures(){
-  pac_mov[0].loadFromFile("assets/pacman/0.png");
+  if (!pac_mov[0].loadFromFile("assets/pacman/0.png")) throw std::runtime_error("Cannot find pacman");
   pac_mov[1].loadFromFile("assets/pacman/1.png");
   pac_mov[2].loadFromFile("assets/pacman/2.png");
 

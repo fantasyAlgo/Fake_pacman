@@ -1,6 +1,7 @@
 #include "Settings.h"
 
-int pacman_map[MAP_HEIGHT][MAP_WIDTH] = {
+int pacman_map[MAP_HEIGHT][MAP_WIDTH];
+  /*= {
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1},
     {1,0,1,1,1,1,0,1,1,1,1,1,0,1,1,0,1,1,1,1,1,0,1,1,1,1,0,1},
@@ -28,6 +29,20 @@ int pacman_map[MAP_HEIGHT][MAP_WIDTH] = {
     {1,0,1,1,1,1,1,1,1,1,1,1,0,1,1,0,1,1,1,1,1,1,1,1,1,1,0,1},
     {1,0,0,0,0,0,0,0,0,0,0,0,0,0,2,0,0,0,0,0,0,0,0,0,0,0,0,1},
     {1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1},
-};
+};*/
 
+
+void loadMap(std::string mapFile){
+  std::ifstream file(mapFile);
+  std::string line;
+  int i = 0;
+  while (getline(file, line)){
+    //std::cout << line << std:
+    for (int j = 0;  j < MAP_WIDTH; j++) {
+      pacman_map[i][j] = line[j]-48;
+    }
+    i++;
+  }
+  file.close();
+}
 
