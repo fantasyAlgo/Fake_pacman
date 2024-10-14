@@ -29,12 +29,12 @@ GUI::GUI(){
   y += SCREEN_WIDTH/2;
 
   sf::Text new_game_text;
-  this->make_text(new_game_text, "New game", 30, y, sf::Color::White);
+  this->make_text(new_game_text, "New game", 40, y, sf::Color::White);
   this->new_game = (Button){"New game", new_game_text, GameState::PrepareRun};
 
   y += SCREEN_WIDTH/8;
   sf::Text exit_game_text;
-  this->make_text(exit_game_text, "Exit ", 30, y, sf::Color::White);
+  this->make_text(exit_game_text, "Exit ", 40, y, sf::Color::White);
   this->exit_game = {"Exit", exit_game_text, GameState::KillProgram};
 
   if (!this->pacman_img.loadFromFile("assets/images/pacmanImg.png")){ throw std::runtime_error("Whoops!");}

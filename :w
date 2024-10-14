@@ -1,0 +1,60 @@
+import pygame
+import sys
+import math
+pygame.init()
+
+# Constants based on the pacman game
+MAP_WIDTH = 28
+MAP_HEIGHT = 27
+
+# Colors
+WHITE = (255, 255, 255)
+BLACK = (0, 0, 0)
+BLUE = (0, 0, 220)
+
+# Global
+WIDTH, HEIGHT = 800, 600
+PANEL_WIDTH = 100
+PANEL_HEIGHT = 50 
+
+
+# Set up the game window
+screen = pygame.display.set_mode((WIDTH, HEIGHT))
+pygame.display.set_caption('Simple Pygame Boilerplate')
+
+# Set up the game clock
+clock = pygame.time.Clock()
+running = True
+x_ratio = math.ceil(WIDTH - PANEL_WIDTH)/(MAP_WIDTH-1)
+y_ratio = math.ceil(HEIGHT - PANEL_HEIGHT)/(MAP_HEIGHT-1)
+
+pacman_matrix = [[0]*MAP_WIDTH for _ in range(MAP_HEIGHT)]
+
+for i in range(MAP_HEIGHT):
+    pacman_matrix[i][0] = 1
+## Sorry for the cumsiness
+while running:
+    # Handle events
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            running = False
+    screen.fill(BLACK)
+
+    pygame.draw.line(screen, WHITE, [0, PANEL_HEIGHT], [WIDTH, PANEL_HEIGHT])
+    for i in range(PANEL_WIDTH, WIDTH, int(x_ratio)):
+        pygame.draw.line(screen, WHITE, [i, PANEL_HEIGHT], [i, HEIGHT])
+    for i in range(PANEL_HEIGHT, HEIGHT, int(y_ratio)):
+        pygame.draw.line(screen, WHITE, [PANEL_WIDTH, i], [WIDTH, i])
+    for i in range(MAP_HEIGHT):
+        for j in range(MAP_WIDTH):
+            if (pacman_matrix[i][j] == 1):
+                pygame.draw.rect(screen, BLUE, [PANEL_WIDTH + i*x_ratio-1, PANEL_HEIGHT+j*y_ratio-1, y_ratio, x_ratio])
+
+
+    pygame.display.flip()
+
+    clock.tick(60)
+
+# Quit the game
+pygame.quit()
+sys.exit()

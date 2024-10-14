@@ -66,6 +66,7 @@ void Game::Reset(){
   this->clyde->set_position(std::make_pair(14, 13));
   this->pinky->set_position(std::make_pair(14, 15));
 
+  this->eat_points = 0;
   this->points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
   this->state = GameState::RunGame;
   this->new_target = {0, -1, 0, 0};
@@ -161,7 +162,7 @@ GameState Game::Update(sf::Time deltaTime){
     }
     return GameState::RunGame;
   }
-  std::cout << pac[int(pac_mov_time)%3] << std::endl;
+  //std::cout << pac[int(pac_mov_time)%3] << std::endl;
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);
@@ -191,7 +192,7 @@ GameState Game::Update(sf::Time deltaTime){
     return GameState::RunGame;
   }
   points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
-  time -= 0.000015;
+  time -= 0.000018;
   return GameState::RunGame;
 }
 
