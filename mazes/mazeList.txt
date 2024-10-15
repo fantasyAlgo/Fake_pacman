@@ -1,9 +1,3 @@
 maze1.map
 maze2.map
 maze3.map
-maze4.map
-maze5.map
-maze6.map
-maze7.map
-maze8.map
-maze9.map

@@ -57,7 +57,6 @@ Game::Game(){
 }
 
 void Game::Reset(){
-  std::cout << "Using: " << current_maze << std::endl;
   loadMap(filePrefix+current_maze);
   this->mapTexture = build_map(atlasTexture);
   this->mapSprite.setTexture(this->mapTexture);
@@ -72,7 +71,8 @@ void Game::Reset(){
   this->pinky->set_position(std::make_pair(14, 15));
 
   this->eat_points = 0;
-  this->points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
+  this->init_coins = coins.size();
+  this->points.setString("Points: " + std::to_string(this->init_coins - coins.size() + eat_points));
   this->state = GameState::RunGame;
   this->new_target = {0, -1, 0, 0};
   this->beginMusic.play();
@@ -192,13 +192,11 @@ GameState Game::Update(sf::Time deltaTime){
     this->death_animation = true;
     this->death_frame = 0;
 
-
-    std::cout << "Goddam" << std::endl;
     gui.isEnterPressed = false;
     return GameState::RunGame;
   }
   points.setString("Points: " + std::to_string(init_coins - coins.size() + eat_points));
-  time -= 0.000018;
+  time -= 0.09*(deltaTime.asSeconds()/TIME_SPEED);
   return GameState::RunGame;
 }
 

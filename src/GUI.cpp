@@ -93,10 +93,13 @@ GameState GUI::DrawOptionsScreen(sf::RenderWindow &window, std::string &current_
   window.draw(this->options_text);
   int size = mazes_texts.size();
   for (int i = 0; i < size; i++) {
-    if (this->pointer_pos ==  i)
+    if (this->pointer_pos ==i)
       this->mazes_texts[i].setString(">" + this->mazes_names[i]);
     else this->mazes_texts[i].setString(this->mazes_names[i]);
     this->mazes_texts[i].setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT+100);
+    if (this->mazes_names[i] == current_maze){
+      this->mazes_texts[i].setString(this->mazes_texts[i].getString() + " X");
+    }
   }
   if (this->pointer_pos == size)
     undo_button.text.setString(">" + undo_button.name);

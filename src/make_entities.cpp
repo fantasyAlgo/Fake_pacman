@@ -25,7 +25,6 @@ void loadMap(std::string mapFile){
   file.close();
 }
 
-
 sf::Texture build_map(sf::Texture &atlasTexture){
   std::vector<sf::RectangleShape> map;
 
@@ -38,7 +37,6 @@ sf::Texture build_map(sf::Texture &atlasTexture){
 
   // little optimization
   int width;
-  std::cout << width_ratio << std::endl;
 
   sf::IntRect tileRect;
   // Does not work cat!!!!!!!!
@@ -69,6 +67,11 @@ sf::Texture build_map(sf::Texture &atlasTexture){
       if ((j-1 < 0 || pacman_map[i][j-1] == 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
           (i-1 < 0 || pacman_map[i-1][j] == 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*10,0, 16, 16);
 
+      if ((j-1 < 0 || pacman_map[i][j-1] != 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] == 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] != 1)) tileRect = sf::IntRect(16*8,0, 16, 16);
+
+      if ((j-1 < 0 || pacman_map[i][j-1] != 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
+          (i-1 < 0 || pacman_map[i-1][j] != 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] == 1)) tileRect = sf::IntRect(16*1,0, 16, 16);
 
       sprite.setTextureRect(tileRect);
       sprite.setScale(2.0f, 2.0f);
