@@ -44,9 +44,11 @@ GUI::GUI(){
   this->make_text(this->options_text, "Select map", 70, y, sf::Color(237, 231, 109));
 
   y += SCREEN_WIDTH/2;
+  this->undo_button = {"Undo", sf::Text(), GameState::Home};
+  this->make_text(this->undo_button.text, "Undo", 50, SCREEN_WIDTH/3 + (SCREEN_WIDTH/8)*NVisibleMazes, sf::Color::White);
   for (int i = 0; i < this->size; i++) {
     this->make_text(buttons[i].text, buttons[i].name, 40, y, sf::Color::White);
-    y+=SCREEN_WIDTH/8;
+    y += SCREEN_WIDTH/8;
   }
 
   if (!this->pacman_img.loadFromFile("assets/images/pacmanImg.png")){ throw std::runtime_error("Whoops!");}
@@ -66,7 +68,7 @@ GameState GUI::DrawHomeScreen(sf::RenderWindow &window){
   window.clear(sf::Color(47, 49, 158));
   this->ClearPointers();
   for (int i = 0; i < this->size; i++) 
-    if (this->pointer_pos == this->size-i-1) buttons[i].text.setString(">"+buttons[i].name);
+    if (this->pointer_pos == i) buttons[i].text.setString(">"+buttons[i].name);
 
   //window.draw(this->maze_ui);
   window.draw(this->game_name);
@@ -76,8 +78,7 @@ GameState GUI::DrawHomeScreen(sf::RenderWindow &window){
   if (this->isEnterPressed){
     this->isEnterPressed = false;
     for (int i = 0; i < this->size; i++) {
-      if (this->pointer_pos == this->size-i-1){
-        std::cout << buttons[i].actionWhenPressed << std::endl;
+      if (this->pointer_pos == i){
         return this->buttons[i].actionWhenPressed;
       }
     }
@@ -87,28 +88,37 @@ GameState GUI::DrawHomeScreen(sf::RenderWindow &window){
   window.display();
   return GameState::Home;
 }
-GameState GUI::DrawOptionsScreen(sf::RenderWindow &window){
+GameState GUI::DrawOptionsScreen(sf::RenderWindow &window, std::string &current_maze){
   window.clear(sf::Color(47, 49, 158));
   window.draw(this->options_text);
   int size = mazes_texts.size();
   for (int i = 0; i < size; i++) {
-    if (this->pointer_pos ==  size-i-1)
+    if (this->pointer_pos ==  i)
       this->mazes_texts[i].setString(">" + this->mazes_names[i]);
-    else 
-      this->mazes_texts[i].setString(this->mazes_names[i]);
+    else this->mazes_texts[i].setString(this->mazes_names[i]);
+    this->mazes_texts[i].setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT+100);
   }
-  for (int i = 0; i < size; i++) {
+  if (this->pointer_pos == size)
+    undo_button.text.setString(">" + undo_button.name);
+  else undo_button.text.setString(undo_button.name);
+  int pos = this->pointer_pos;
+  if (pos-1 >= 0) this->mazes_texts[pos-1].setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/3);
+  if (pos >= 0 && pos < size) this->mazes_texts[pos].setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/3 + 1*(SCREEN_HEIGHT/8));
+  if (pos+1 < size) this->mazes_texts[pos+1].setPosition(SCREEN_WIDTH/2, SCREEN_HEIGHT/3 + 2*(SCREEN_HEIGHT/8));
+
+  for (int i = 0; i < size; i++) 
     window.draw(this->mazes_texts[i]);
-  }
+  window.draw(undo_button.text);
 
   if (this->isEnterPressed){
-    for (int i = 0; i < size; i++) {
-      if (this->pointer_pos == size-i-1){
-        loadMap("mazes/" + this->mazes_names[i]);
+    this->isEnterPressed = false;
+    for (int i = 0; i < size; i++) 
+      if (this->pointer_pos == i){
+        std::cout << "Loading: " << this->mazes_names[i] << std::endl;
+        current_maze = this->mazes_names[i];
       }
-    }
+    if (this->pointer_pos == size) return undo_button.actionWhenPressed;
   }
-
 
   window.display();
   return GameState::Options;
@@ -117,7 +127,7 @@ GameState GUI::DrawOptionsScreen(sf::RenderWindow &window){
 
 void GUI::goUp(GameState state){
   this->pointer_pos += 1;
-  this->pointer_pos = std::min(this->pointer_pos, 2);
+  this->pointer_pos = std::min(this->pointer_pos, state == GameState::Home ? 2 : (int)this->mazes_texts.size());
 }
 void GUI::goDown(){
   this->pointer_pos -= 1;

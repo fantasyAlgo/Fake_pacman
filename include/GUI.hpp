@@ -14,6 +14,7 @@
 #include <stdexcept>
 #include <vector>
 #include "GameStates.h"
+#include "make_entities.h"
 
 struct Button {
   std::string name;
@@ -33,21 +34,16 @@ class GUI {
     sf::Texture maze_img;
     sf::Sprite maze_ui;
 
-    Button new_game;
-    Button exit_game;
-    Button options_game;
     std::vector<Button> buttons;
+    Button undo_button;
     int size;
+
     // For the Death screen
     sf::Text death_text;
     sf::Text options_text;
     
     std::vector<std::string> mazes_names;
     std::vector<sf::Text> mazes_texts;
-
-    Button new_game_death;
-    Button exit_game_death;
-
 
     int pointer_pos;
     void make_text(sf::Text &text, std::string txt, int size, int height, sf::Color);
@@ -59,5 +55,5 @@ class GUI {
     void goDown();
 
     GameState DrawHomeScreen(sf::RenderWindow &window);
-    GameState DrawOptionsScreen(sf::RenderWindow &window);
+    GameState DrawOptionsScreen(sf::RenderWindow &window, std::string &current_maze);
 };

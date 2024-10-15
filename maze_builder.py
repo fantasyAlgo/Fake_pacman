@@ -84,7 +84,6 @@ while running:
             running = False
         if event.type == pygame.MOUSEBUTTONDOWN:
             isMouseDown = True
-            print("hello world")
             pos = pygame.mouse.get_pos();
             if (pos[1] < PANEL_HEIGHT):
                 for i in range(len(modes)):

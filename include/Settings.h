@@ -19,7 +19,8 @@ constexpr int POS_DIV = 2;
 const int width_ratio = SCREEN_WIDTH / MAP_WIDTH;
 const int height_ratio = SCREEN_HEIGHT / MAP_HEIGHT;
 const float TIME_SPEED = 7000.0f;
-const std::string filePath = "mazes/"
+const int NVisibleMazes = 3;
+const std::string filePrefix = "mazes/";
 
 // Sample map, in theory should be done using a maze generator (the prim's one should be good for this)
 extern int pacman_map[MAP_HEIGHT][MAP_WIDTH];
@@ -27,5 +28,4 @@ extern int pacman_map[MAP_HEIGHT][MAP_WIDTH];
 //#endif // !Settings_H
 
 
-std::vector<std::string> loadMapNames(std::string mazesNameTxt);
-void loadMap(std::string mapFile);
+

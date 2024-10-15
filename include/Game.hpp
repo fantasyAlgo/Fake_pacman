@@ -72,6 +72,8 @@ private:
   float death_time;
   bool death_animation;
   int death_frame;
+
+  std::string current_maze;
 };
 
 #endif

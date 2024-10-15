@@ -53,10 +53,15 @@ Game::Game(){
   this->eat_points = 0;
 
   this->state = GameState::Home;
-
+  this->current_maze = "maze1.map";
 }
 
 void Game::Reset(){
+  std::cout << "Using: " << current_maze << std::endl;
+  loadMap(filePrefix+current_maze);
+  this->mapTexture = build_map(atlasTexture);
+  this->mapSprite.setTexture(this->mapTexture);
+
   this->coins = make_coins();
   this->powers = make_power();
 
@@ -98,7 +103,7 @@ void Game::Run(){
         this->state = GameState::RunGame;
         break;
       case GameState::Options:
-        this->state = gui.DrawOptionsScreen(*this->window);
+        this->state = gui.DrawOptionsScreen(*this->window, this->current_maze);
         break;
 
     }
@@ -139,10 +144,10 @@ void Game::KeyHandler(){
         new_target.init = false;
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-      gui.goUp(state);
+      gui.goDown();
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){
-      gui.goDown();
+      gui.goUp(state);
     }
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::Enter)){
       gui.isEnterPressed = true;
