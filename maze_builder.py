@@ -74,12 +74,17 @@ if (len(list_files) > 0):
     current_file = list_files[0]
     upload_map(fileName="mazes/" + list_files[0])
 ## Sorry for the cumsiness
+
+
+isMouseDown = False
 while running:
     # Handle events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-        if event.type == pygame.MOUSEBUTTONUP:
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            isMouseDown = True
+            print("hello world")
             pos = pygame.mouse.get_pos();
             if (pos[1] < PANEL_HEIGHT):
                 for i in range(len(modes)):
@@ -104,10 +109,13 @@ while running:
                         file.write(list_files[-1] + "\n")
                     with open("mazes/" + list_files[-1],'w') as file:
                         file.writelines(pacmanMatrixToString())
-            else:
-                pos = (pos[0]-PANEL_WIDTH, pos[1]-PANEL_HEIGHT)
-                maze_pos = (int(pos[0]/x_ratio), int(pos[1]/y_ratio))
-                pacman_matrix[maze_pos[0]][maze_pos[1]] = mode.value
+        if event.type == pygame.MOUSEBUTTONUP:
+            isMouseDown = False
+    if isMouseDown and pos[1] > PANEL_HEIGHT and pos[0] > PANEL_WIDTH:
+        pos = pygame.mouse.get_pos()
+        pos = (pos[0]-PANEL_WIDTH, pos[1]-PANEL_HEIGHT)
+        maze_pos = (int(pos[0]/x_ratio), int(pos[1]/y_ratio))
+        pacman_matrix[maze_pos[0]][maze_pos[1]] = mode.value
 
     screen.fill(BLACK)
     for i in range(len(modes)):
@@ -135,6 +143,8 @@ while running:
 
     for i in range(MAP_HEIGHT+1):
         for j in range(MAP_WIDTH+1):
+            if (pacman_matrix[i][j] == 0):
+                pygame.draw.circle(screen, YELLOW, [PANEL_WIDTH + (i+0.5)*x_ratio, PANEL_HEIGHT+(j+0.5)*y_ratio], x_ratio/10)
             if (pacman_matrix[i][j] == 1):
                 pygame.draw.rect(screen, BLUE, [PANEL_WIDTH + i*x_ratio, PANEL_HEIGHT+j*y_ratio+1, x_ratio, y_ratio])
             if (pacman_matrix[i][j] == 2):

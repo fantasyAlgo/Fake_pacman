@@ -12,6 +12,7 @@
 #include "helpers.h"
 #include <iostream>
 #include <stdexcept>
+#include <vector>
 #include "GameStates.h"
 
 struct Button {
@@ -34,8 +35,16 @@ class GUI {
 
     Button new_game;
     Button exit_game;
+    Button options_game;
+    std::vector<Button> buttons;
+    int size;
     // For the Death screen
     sf::Text death_text;
+    sf::Text options_text;
+    
+    std::vector<std::string> mazes_names;
+    std::vector<sf::Text> mazes_texts;
+
     Button new_game_death;
     Button exit_game_death;
 
@@ -50,5 +59,5 @@ class GUI {
     void goDown();
 
     GameState DrawHomeScreen(sf::RenderWindow &window);
-    GameState DrawDeathScreen(sf::RenderWindow &window);
+    GameState DrawOptionsScreen(sf::RenderWindow &window);
 };

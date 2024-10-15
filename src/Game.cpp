@@ -93,13 +93,14 @@ void Game::Run(){
       case GameState::Home:
         this->state = gui.DrawHomeScreen(*this->window);
         break;
-      case GameState::Death:
-        this->state = gui.DrawDeathScreen(*this->window);
-        break;
       case GameState::PrepareRun:
         this->Reset();
         this->state = GameState::RunGame;
         break;
+      case GameState::Options:
+        this->state = gui.DrawOptionsScreen(*this->window);
+        break;
+
     }
   }
 }

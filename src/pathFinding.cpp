@@ -34,22 +34,22 @@ std::pair<int, int> BFS(int map[][MAP_WIDTH], std::pair<int, int> start, std::pa
             }
             return prevCurr;
         }
-        if (curr.first - 1 >= 0 && map[curr.second][curr.first - 1] == 0 && distance[curr.first - 1][curr.second] > distance[curr.first][curr.second] + 1){
+        if (curr.first - 1 >= 0 && map[curr.second][curr.first - 1] != 1 && distance[curr.first - 1][curr.second] > distance[curr.first][curr.second] + 1){
             distance[curr.first - 1][curr.second] = distance[curr.first][curr.second] + 1;
             parent[curr.first - 1][curr.second] = curr.first * MAP_WIDTH + curr.second;
             queue.push(std::make_pair(curr.first - 1, curr.second));
         }
-        if (curr.first + 1 < MAP_HEIGHT && map[curr.second][curr.first + 1] == 0 && distance[curr.first + 1][curr.second] > distance[curr.first][curr.second] + 1){
+        if (curr.first + 1 < MAP_HEIGHT && map[curr.second][curr.first + 1] != 1 && distance[curr.first + 1][curr.second] > distance[curr.first][curr.second] + 1){
             distance[curr.first + 1][curr.second] = distance[curr.first][curr.second] + 1;
             parent[curr.first + 1][curr.second] = curr.first * MAP_WIDTH + curr.second;
             queue.push(std::make_pair(curr.first + 1, curr.second));
         }
-        if (curr.second - 1 >= 0 && map[curr.second - 1][curr.first] == 0 && distance[curr.first][curr.second - 1] > distance[curr.first][curr.second] + 1){
+        if (curr.second - 1 >= 0 && map[curr.second - 1][curr.first] != 1 && distance[curr.first][curr.second - 1] > distance[curr.first][curr.second] + 1){
             distance[curr.first][curr.second - 1] = distance[curr.first][curr.second] + 1;
             parent[curr.first][curr.second - 1] = curr.first * MAP_WIDTH + curr.second;
             queue.push(std::make_pair(curr.first, curr.second - 1));
         }
-        if (curr.second + 1 < MAP_WIDTH && map[curr.second + 1] [curr.first]== 0 && distance[curr.first][curr.second + 1] > distance[curr.first][curr.second] + 1){
+        if (curr.second + 1 < MAP_WIDTH && map[curr.second + 1] [curr.first] != 1 && distance[curr.first][curr.second + 1] > distance[curr.first][curr.second] + 1){
             distance[curr.first][curr.second + 1] = distance[curr.first][curr.second] + 1;
             parent[curr.first][curr.second + 1] = curr.first * MAP_WIDTH + curr.second;
             queue.push(std::make_pair(curr.first, curr.second + 1));

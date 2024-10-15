@@ -1,7 +1,20 @@
 #include "Settings.h"
+#include <cstdio>
+#include <fstream>
 #include <stdexcept>
 
 int pacman_map[MAP_HEIGHT][MAP_WIDTH];
+
+
+std::vector<std::string> loadMapNames(std::string mazesNameTxt){
+  std::ifstream file(mazesNameTxt);
+  std::vector<std::string>  result;
+  std::string line;
+  while (getline(file, line))
+    result.push_back(line);
+  file.close();
+  return result;
+}
 
 void loadMap(std::string mapFile){
   std::ifstream file(mapFile);

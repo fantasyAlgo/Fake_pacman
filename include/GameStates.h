@@ -5,7 +5,8 @@ enum GameState {
   Home,
   Death,
   PrepareRun,
-  KillProgram
+  KillProgram,
+  Options
 };
 
 
