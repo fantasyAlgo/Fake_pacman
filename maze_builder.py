@@ -36,7 +36,7 @@ DELETE_WIDTH = 15
 # Set up the game window
 screen = pg.display.set_mode((WIDTH, HEIGHT))
 file_font = pg.font.Font("assets/Emulogic.ttf", 10)
-pg.display.set_caption('Simple pg Boilerplate')
+pg.display.set_caption('Map editor')
 
 # Set up the game clock
 clock = pg.time.Clock()

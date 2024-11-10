@@ -73,6 +73,9 @@ sf::Texture build_map(sf::Texture &atlasTexture){
       if ((j-1 < 0 || pacman_map[i][j-1] != 1) && (j+1 >= MAP_WIDTH || pacman_map[i][j+1] != 1) &&
           (i-1 < 0 || pacman_map[i-1][j] != 1) && (i+1 >= MAP_HEIGHT || pacman_map[i+1][j] == 1)) tileRect = sf::IntRect(16*1,0, 16, 16);
 
+      if ((!(j-1 < 0) && pacman_map[i][j-1] == 1) && (!(j+1 >= MAP_WIDTH) && pacman_map[i][j+1] == 1) &&
+          (!(i-1 < 0) && pacman_map[i-1][j] == 1) && (!(i+1 >= MAP_HEIGHT) && pacman_map[i+1][j] == 1)) continue;
+
       sprite.setTextureRect(tileRect);
       sprite.setScale(2.0f, 2.0f);
       sprite.setPosition((j+1)*width_ratio - width, i*height_ratio);

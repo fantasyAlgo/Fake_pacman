@@ -172,7 +172,7 @@ GameState Game::Update(sf::Time deltaTime){
   pacman->setTexture(pac_mov[int(pac_mov_time)%3]);
   if (pacman->getTarget().where == 1) pacman->setRotation(-pacman->getTarget().d*90);
   else if (pacman->getTarget().where == 0) pacman->setRotation(pacman->getTarget().d == 1 ? 180 : 0);
-  pac_mov_time += 0.001;
+  pac_mov_time += 0.001*deltaTime.asSeconds();
 
   this->peace_time -= deltaTime.asSeconds()/TIME_SPEED;
   if (this->peace_time > 0) return GameState::RunGame;

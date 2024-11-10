@@ -24,7 +24,7 @@ bool Ghost::can_kill(MovingObject &pacman, bool scared){
 }
 bool Ghost::updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &eat_points, sf::Time deltaTIme){
   if (died_time > 0){
-      died_time -= 0.0001;
+      died_time -= 0.01*deltaTIme.asSeconds();
       return false;
   }
   if (scared == false) died = false;
@@ -32,7 +32,7 @@ bool Ghost::updateGhost(MovingObject &pacman, Ghost &guest, bool scared, int &ea
   if (int(time)%100 > 60 && int(time)%1000 < 85 && !scared) update(go_to(scatter_place), deltaTIme);
   else update(go_to(!scared ? action(pacman, guest) : random_target()), deltaTIme);
   setTexture(!scared ? move_texture[int(time+0.01)%2] : scared_ghost[int(time+0.01)%2]);
-  time += 0.001;
+  time += 0.1*deltaTIme.asSeconds();
 
   // Check if pacman has collided to the ghost
   if (get_map_coord() == pacman.get_map_coord() && scared){
