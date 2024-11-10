@@ -1,3 +1,0 @@
-/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles/pacman_game.dir
-/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles/edit_cache.dir
-/home/fantasy/Programming/cpp/Fake_pacman/build/CMakeFiles/rebuild_cache.dir
